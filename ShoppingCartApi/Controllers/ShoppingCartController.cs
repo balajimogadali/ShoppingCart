@@ -20,6 +20,7 @@ namespace ShoppingCartApi.Controllers
             this.shoppingCartRepository = shoppingCartRepository;
         }
 
+        [Authorize(Roles = "Writer")]
         [HttpPost]
         [Route("CreateShoppingCart")]
         public async Task<IActionResult> CreateShoppingCart([FromBody] ShoppingCartDto shoppingCartDto)
@@ -45,6 +46,7 @@ namespace ShoppingCartApi.Controllers
             return Ok(response);
         }
 
+        [Authorize(Roles = "Writer")]
         [HttpPost]
         [Route("UpdateShoppingCart")]
         public async Task<IActionResult> UpdateShoppingCartQuantity([FromBody] ShoppingCartDto shoppingCartDto)
@@ -72,6 +74,7 @@ namespace ShoppingCartApi.Controllers
 
         }
 
+        [Authorize(Roles = "Writer")]
         [HttpDelete]
         [Route("{shoppingCartId:Guid}")]
         public async Task<IActionResult> DeleteShoppingCartById([FromRoute] Guid shoppingCartId)

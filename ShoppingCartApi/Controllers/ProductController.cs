@@ -18,6 +18,7 @@ namespace ShoppingCartApi.Controllers
             this.productRepository = productRepository;
         }
 
+        [Authorize(Roles = "Writer")]
         [HttpPost]
         [Route("CreateProduct")]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductDTO productDTO)
@@ -40,6 +41,7 @@ namespace ShoppingCartApi.Controllers
             return Ok(response);
         }
 
+        [Authorize(Roles = "Writer")]
         [HttpDelete]
         [Route("{id:Guid}")]
         public async Task<IActionResult> DeleteProduct([FromRoute] Guid id)
@@ -83,6 +85,7 @@ namespace ShoppingCartApi.Controllers
             return Ok(response);
         }
 
+        [Authorize(Roles = "Writer")]
         [HttpPut]
         [Route("UpdateProduct")]
         public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductDTO productDTO)

@@ -20,6 +20,7 @@ namespace ShoppingCartApi.Controllers
             this.shoppingCartRepository = shoppingCartRepository;
         }
 
+        [Authorize(Roles = "Writer")]
         [HttpPost]
         [Route("CreateOrderByUserID")]
         public async Task<IActionResult> CreateOrderByUserID([FromBody] CreateOrderRequestDto request)
