@@ -25,7 +25,7 @@ This method give response as below:
   ]
 }
 
-//For remaining Domain api method need this jwt token , so pass it into Authentication Header
+//For remaining Domain api method need this jwt token , so pass it as Bearer token Header
 //Post, Delete,Put methods need Writer JWT token. 
 
 
